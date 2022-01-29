@@ -1,20 +1,30 @@
 package com.UserWebApplication.Userwebapplication.entity;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.Date;
 
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
     private String userName;
     private String firstName;
     private String lastName;
     private String password;
-    private String imageUrl;
+    private String verified;
+    private Date verifiedOn;
 
-    public User(Long userId, String userName, String firstName, String lastName, String password, String imageUrl) {
+    public User(Long userId, String userName, String firstName, String lastName, String password, String verified, Date verifiedOn) {
         this.userId = userId;
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-        this.imageUrl = imageUrl;
+        this.verified = verified;
+        this.verifiedOn = verifiedOn;
     }
 
     public User() {
@@ -60,12 +70,19 @@ public class User {
         this.password = password;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getVerified() {
+        return verified;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setVerified(String verified) {
+        this.verified = verified;
+    }
+    public Date getVerifiedOn() {
+        return verifiedOn;
+    }
+
+    public void setVerifiedOn(Date verifiedOn) {
+        this.verifiedOn = verifiedOn;
     }
 
     @Override
@@ -76,7 +93,8 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
+                ", verified='" + verified + '\'' +
+                ", verifiedOn='" + verifiedOn + '\''+
                 '}';
     }
 }
