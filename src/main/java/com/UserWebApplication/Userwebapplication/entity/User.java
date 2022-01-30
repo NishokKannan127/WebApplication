@@ -8,11 +8,15 @@ import java.util.Date;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
+    @NotBlank(message = "username cant be blank")
     private String userName;
+    @NotBlank(message = "firstname cant be blank")
     private String firstName;
+    @NotBlank(message = "lastname cant be blank")
     private String lastName;
+    @NotBlank(message = "password cant be blank")
     private String password;
     private String verified;
     private Date verifiedOn;
